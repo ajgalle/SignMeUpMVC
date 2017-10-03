@@ -13,10 +13,10 @@ namespace SignMeUpMVC.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class dbLocalTestEntities1 : DbContext
+    public partial class dbLocalTestEntities2 : DbContext
     {
-        public dbLocalTestEntities1()
-            : base("name=dbLocalTestEntities1")
+        public dbLocalTestEntities2()
+            : base("name=dbLocalTestEntities2")
         {
         }
     
@@ -27,5 +27,7 @@ namespace SignMeUpMVC.Models
     
         public virtual DbSet<tblEmployee> tblEmployees { get; set; }
         public virtual DbSet<tblOvertime> tblOvertimes { get; set; }
+
+        public System.Data.Entity.DbSet<SignMeUpMVC.Models.OvertimeViewModel> OvertimeViewModels { get; set; }
     }
 }

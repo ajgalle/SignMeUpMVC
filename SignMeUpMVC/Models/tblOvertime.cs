@@ -21,7 +21,5 @@ namespace SignMeUpMVC.Models
         public Nullable<System.DateTime> SignUpEnd { get; set; }
         public Nullable<int> SelectedEmployeeId { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
-    
-        public virtual tblEmployee tblEmployee { get; set; }
     }
 }

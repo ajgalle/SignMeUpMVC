@@ -155,63 +155,63 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityModelForSignMeUpMVC.Context.cs">
+    <Compile Include="Models\MVCEntityModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EntityModelForSignMeUpMVC.Context.tt</DependentUpon>
+      <DependentUpon>MVCEntityModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityModelForSignMeUpMVC.cs">
+    <Compile Include="Models\MVCEntityModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EntityModelForSignMeUpMVC.tt</DependentUpon>
+      <DependentUpon>MVCEntityModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityModelForSignMeUpMVC.Designer.cs">
+    <Compile Include="Models\MVCEntityModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EntityModelForSignMeUpMVC.edmx</DependentUpon>
+      <DependentUpon>MVCEntityModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\OvertimeViewModel.cs" />
     <Compile Include="Models\tblEmployee.cs">
-      <DependentUpon>EntityModelForSignMeUpMVC.tt</DependentUpon>
+      <DependentUpon>MVCEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblOvertime.cs">
-      <DependentUpon>EntityModelForSignMeUpMVC.tt</DependentUpon>
+      <DependentUpon>MVCEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\no-image-ct.gif" />
-    <Content Include="Content\norfolk_tn.jpg" />
-    <Content Include="Content\northampton_tn.jpg" />
-    <Content Include="Content\portsmouth_tn.jpg" />
-    <Content Include="Content\vabeach_tn.jpeg" />
+    <Content Include="Images\no-image-ct.gif" />
+    <Content Include="Images\Norfolk_tn.jpg" />
+    <Content Include="Images\Northampton_tn.jpg" />
+    <Content Include="Images\Portsmouth_tn.jpg" />
+    <Content Include="Images\VABeach_tn.jpeg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\EntityModelForSignMeUpMVC.Context.tt">
+    <Content Include="Models\MVCEntityModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EntityModelForSignMeUpMVC.edmx</DependentUpon>
-      <LastGenOutput>EntityModelForSignMeUpMVC.Context.cs</LastGenOutput>
+      <DependentUpon>MVCEntityModel.edmx</DependentUpon>
+      <LastGenOutput>MVCEntityModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\EntityModelForSignMeUpMVC.tt">
+    <Content Include="Models\MVCEntityModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EntityModelForSignMeUpMVC.edmx</DependentUpon>
-      <LastGenOutput>EntityModelForSignMeUpMVC.cs</LastGenOutput>
+      <DependentUpon>MVCEntityModel.edmx</DependentUpon>
+      <LastGenOutput>MVCEntityModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\EntityModelForSignMeUpMVC.edmx">
+    <EntityDeploy Include="Models\MVCEntityModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EntityModelForSignMeUpMVC.Designer.cs</LastGenOutput>
+      <LastGenOutput>MVCEntityModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\EntityModelForSignMeUpMVC.edmx.diagram">
-      <DependentUpon>EntityModelForSignMeUpMVC.edmx</DependentUpon>
+    <Content Include="Models\MVCEntityModel.edmx.diagram">
+      <DependentUpon>MVCEntityModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -244,7 +244,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

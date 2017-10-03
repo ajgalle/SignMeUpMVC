@@ -19,7 +19,5 @@ namespace SignMeUpMVC.Models
         public string FirstName { get; set; }
         public string Email { get; set; }
         public string HomeOffice { get; set; }
-    
-        public virtual tblOvertime tblOvertime { get; set; }
     }
 }

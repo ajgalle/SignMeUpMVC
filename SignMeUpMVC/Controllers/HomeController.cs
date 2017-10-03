@@ -11,7 +11,7 @@ namespace SignMeUpMVC.Controllers
     {
         public ActionResult Index()
         {
-            dbLocalTestEntities1 db = new dbLocalTestEntities1();
+            dbLocalTestEntities2 db = new dbLocalTestEntities2();
 
             //List < tblOvertime  > list = db.tblOvertimes.ToList();
 

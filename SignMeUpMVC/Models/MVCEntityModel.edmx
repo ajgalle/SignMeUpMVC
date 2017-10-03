@@ -27,25 +27,9 @@
           <Property Name="SelectedEmployeeId" Type="int" />
           <Property Name="IsDeleted" Type="bit" />
         </EntityType>
-        <Association Name="FK_tblOvertime_tblEmployee">
-          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="1" />
-          <End Role="tblOvertime" Type="Self.tblOvertime" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="tblEmployee">
-              <PropertyRef Name="EmployeeId" />
-            </Principal>
-            <Dependent Role="tblOvertime">
-              <PropertyRef Name="OvertimeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="dbLocalTestModelStoreContainer">
           <EntitySet Name="tblEmployee" EntityType="Self.tblEmployee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblOvertime" EntityType="Self.tblOvertime" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_tblOvertime_tblEmployee" Association="Self.FK_tblOvertime_tblEmployee">
-            <End Role="tblEmployee" EntitySet="tblEmployee" />
-            <End Role="tblOvertime" EntitySet="tblOvertime" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -61,7 +45,6 @@
           <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="HomeOffice" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="tblOvertime" Relationship="Self.FK_tblOvertime_tblEmployee" FromRole="tblEmployee" ToRole="tblOvertime" />
         </EntityType>
         <EntityType Name="tblOvertime">
           <Key>
@@ -74,34 +57,17 @@
           <Property Name="SignUpEnd" Type="DateTime" Precision="3" />
           <Property Name="SelectedEmployeeId" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="tblEmployee" Relationship="Self.FK_tblOvertime_tblEmployee" FromRole="tblOvertime" ToRole="tblEmployee" />
         </EntityType>
-        <Association Name="FK_tblOvertime_tblEmployee">
-          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="1" />
-          <End Role="tblOvertime" Type="Self.tblOvertime" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="tblEmployee">
-              <PropertyRef Name="EmployeeId" />
-            </Principal>
-            <Dependent Role="tblOvertime">
-              <PropertyRef Name="OvertimeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="dbLocalTestEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="dbLocalTestEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblEmployees" EntityType="Self.tblEmployee" />
           <EntitySet Name="tblOvertimes" EntityType="Self.tblOvertime" />
-          <AssociationSet Name="FK_tblOvertime_tblEmployee" Association="Self.FK_tblOvertime_tblEmployee">
-            <End Role="tblEmployee" EntitySet="tblEmployees" />
-            <End Role="tblOvertime" EntitySet="tblOvertimes" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="dbLocalTestModelStoreContainer" CdmEntityContainer="dbLocalTestEntities1">
+        <EntityContainerMapping StorageEntityContainer="dbLocalTestModelStoreContainer" CdmEntityContainer="dbLocalTestEntities2">
           <EntitySetMapping Name="tblEmployees">
             <EntityTypeMapping TypeName="dbLocalTestModel.tblEmployee">
               <MappingFragment StoreEntitySet="tblEmployee">
