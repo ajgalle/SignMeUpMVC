@@ -1,0 +1,82 @@
+﻿@model SignMeUpMVC.Models.tblOvertime
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>tblOvertime</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Location)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Location)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DateTimeStart)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DateTimeStart)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DateTimeEnd)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DateTimeEnd)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SignUpEnd)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SignUpEnd)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SelectedEmployeeId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SelectedEmployeeId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IsDeleted)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IsDeleted)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.tblEmployee.LastName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.tblEmployee.LastName)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.OvertimeId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

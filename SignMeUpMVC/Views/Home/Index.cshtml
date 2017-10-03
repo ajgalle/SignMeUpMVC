@@ -2,30 +2,80 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div style="text-align:center">
+    <h1>View Overtime</h1>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<div class="container" style="width:60%; margin-top:2%;">
+        @foreach (var item in ViewBag.AllOvertime)
+        {
+            <table class="table table-responsive" id="table_@item.OvertimeId">
+                         
+               <tr>
+                        @{
+                            string imgSource = "\\content\\" + item.Location + "_tn.jpg";
+                         }
+
+                       <td>
+                   <div style="text-align:center"><img src="@imgSource" alt="@item.Location" style="min-width:150px; min-height:100px; border:2px solid; margin:5px" /><br />
+                   <a href="#" id="btnSignUp_@item.OvertimeId" class="btn btn-success"> Sign Up</a>
+                    </div>
+                        </td>
+
+                   <td>
+                       <table class="table">
+                           <tr style="border:none">
+                               <td>
+                                   Id:
+                               </td>
+                                <td>
+                                    @item.OvertimeId
+                                </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   Location:
+                               </td>
+                               <td>
+                                   @item.Location 
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   Start Time: 
+                               </td>
+                               <td>
+                                   @item.DateTimeStart
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   End Time:
+                               </td>
+                               <td>
+                                   @item.DateTimeEnd
+                               </td>
+                           </tr>
+                       </table>
+                       <br />
+                       <div id="deadline_@item.OvertimeId">Sign Up By: @item.SignUpEnd</div><br />
+                   </td>                            
+                </tr>
+            </table>
+
+            <script>
+
+                $(document).ready(function () {
+
+                    $("#table_@item.OvertimeId").mouseover(function () {
+
+                        $("#deadline_@item.OvertimeId").css({ "color":"blue"});
+                    });
+                    $("#table_@item.OvertimeId").mouseout(function () {
+
+                        $("#deadline_@item.OvertimeId").css({ "color": "black"});
+                    });
+});
+            </script>
+                            }
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
