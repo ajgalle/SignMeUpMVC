@@ -27,7 +27,5 @@ namespace SignMeUpMVC.Models
     
         public virtual DbSet<tblEmployee> tblEmployees { get; set; }
         public virtual DbSet<tblOvertime> tblOvertimes { get; set; }
-
-        public System.Data.Entity.DbSet<SignMeUpMVC.Models.OvertimeViewModel> OvertimeViewModels { get; set; }
     }
 }

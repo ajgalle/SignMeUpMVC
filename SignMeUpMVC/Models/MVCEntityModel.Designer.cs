@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\andre\Documents\Visual Studio 2017\Projects\SignMeUpMVC\SignMeUpMVC\Models\MVCEntityModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\AJG\Source\Repos\SignMeUpMVC\SignMeUpMVC\Models\MVCEntityModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

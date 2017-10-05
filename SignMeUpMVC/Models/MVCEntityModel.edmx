@@ -4,23 +4,23 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="dbLocalTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="dbLocalTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblEmployee">
           <Key>
             <PropertyRef Name="EmployeeId" />
           </Key>
           <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LastName" Type="nchar" MaxLength="100" />
-          <Property Name="FirstName" Type="nchar" MaxLength="100" />
-          <Property Name="Email" Type="nchar" MaxLength="100" />
-          <Property Name="HomeOffice" Type="nchar" MaxLength="100" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+          <Property Name="HomeOffice" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="tblOvertime">
           <Key>
             <PropertyRef Name="OvertimeId" />
           </Key>
           <Property Name="OvertimeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Location" Type="nchar" MaxLength="100" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
           <Property Name="DateTimeStart" Type="datetime" />
           <Property Name="DateTimeEnd" Type="datetime" />
           <Property Name="SignUpEnd" Type="datetime" />
@@ -31,8 +31,7 @@
           <EntitySet Name="tblEmployee" EntityType="Self.tblEmployee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblOvertime" EntityType="Self.tblOvertime" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbLocalTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -41,17 +40,17 @@
             <PropertyRef Name="EmployeeId" />
           </Key>
           <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Name="HomeOffice" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="HomeOffice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tblOvertime">
           <Key>
             <PropertyRef Name="OvertimeId" />
           </Key>
           <Property Name="OvertimeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Location" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DateTimeStart" Type="DateTime" Precision="3" />
           <Property Name="DateTimeEnd" Type="DateTime" Precision="3" />
           <Property Name="SignUpEnd" Type="DateTime" Precision="3" />
