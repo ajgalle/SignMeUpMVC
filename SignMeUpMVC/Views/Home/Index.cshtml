@@ -24,91 +24,98 @@
 <div style="text-align:center">
     <h1>View Overtime</h1>
 </div>
+    <div class="container" style="width:75%; margin-top:2%">
+    @foreach (var item in ViewBag.AllOvertime)
+    {
+        <div style="box-shadow: 5px 5px 15px #888888; min-width:400px" id="shadowCard_@item.OvertimeId">
+            <table class="table table-responsive" id="table_@item.OvertimeId">
 
-<div class="container" style="width:60%; margin-top:2%;">
-        @foreach (var item in ViewBag.AllOvertime)
-        {
-            <div style="border: 5px;box-shadow: 15px 15px 15px #888888;">
-            <table class="table table-responsive"  id="table_@item.OvertimeId">
-                         
-               <tr>
-                        @{
-                            string imgSource = "";
-                            if (item.Location=="Virginia Beach")
-                            {
-                               imgSource = "\\Images\\VirginiaBeach_tn.jpeg";
-                            }
-                            else
-                            {
+                <tr>
+                    @{
+                        string imgSource = "";
+                        if (item.Location == "Virginia Beach")
+                        {
+                            imgSource = "\\Images\\VirginiaBeach_tn.jpeg";
+                        }
+                        else
+                        {
 
-                               imgSource = "\\Images\\" + item.Location + "_tn.jpg";
+                            imgSource = "\\Images\\" + item.Location + "_tn.jpg";
 
-                            }
-                           }
+                        }
+                    }
 
-                       <td>
-                   <div style="text-align:center" ><img style="border:0; margin:2px;"src="@imgSource" alt="@item.Location" style="min-width:200px; min-height:100px; border:2px solid; margin:5px" /><br />
-                   @*<a href="#" id="btnSignUp_@item.OvertimeId" class="btn btn-success"> Sign Up</a>*@
+                    <td>
+                        <div style="text-align:center">
+                            <img style="border:0; margin:2px;" src="@imgSource" alt="@item.Location" style="min-width:200px; min-height:100px; border:2px solid; margin:5px" /><br />
+                            @*<a href="#" id="btnSignUp_@item.OvertimeId" class="btn btn-success"> Sign Up</a>*@
 
-                       <a href="#" class="btn btn-success" data-toggle="modal" data-target="#modalConfirm" id="btnSignUp_@item.OvertimeId">Sign Me Up!</a>
+                            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#modalConfirm" id="btnSignUp_@item.OvertimeId">Sign Me Up!</a>
 
-                    </div>
-                        </td>
+                        </div>
+                    </td>
 
-                   <td>
-                       <table class="table" >
-                           <tr style="border:none">
-                               <td>
-                                   Id:
-                               </td>
+                    <td>
+                        <table class="table table-responsive">
+                            <tr style="border:none">
+                                <td>
+                                    Id:
+                                </td>
                                 <td>
                                     @item.OvertimeId
                                 </td>
-                           </tr>
-                           <tr>
-                               <td>
-                                   Location:
-                               </td>
-                               <td>
-                                   @item.Location 
-                               </td>
-                           </tr>
-                           <tr>
-                               <td>
-                                   Start Time: 
-                               </td>
-                               <td>
-                                   @item.DateTimeStart
-                               </td>
-                           </tr>
-                           <tr>
-                               <td>
-                                   End Time:
-                               </td>
-                               <td>
-                                   @item.DateTimeEnd
-                               </td>
-                           </tr>
-                       </table>
-                       <br />
-                       <div id="deadline_@item.OvertimeId">Sign Up By: @item.SignUpEnd</div><br />
-                   </td>                            
+                            </tr>
+                            <tr>
+                                <td>
+                                    Location:
+                                </td>
+                                <td>
+                                    @item.Location
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Start Time:
+                                </td>
+                                <td>
+                                    @item.DateTimeStart
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    End Time:
+                                </td>
+                                <td>
+                                    @item.DateTimeEnd
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        <div id="deadline_@item.OvertimeId">Sign Up By: @item.SignUpEnd</div><br />
+                    </td>
                 </tr>
             </table>
-                </div>
-            <script>
+        </div>
+        <script>
 
                 $(document).ready(function () {
 
                     $("#table_@item.OvertimeId").mouseover(function () {
 
                         $("#deadline_@item.OvertimeId").css({ "color": "blue" });
+                        $("#shadowCard_@item.OvertimeId").css({ "box-shadow": "15px 15px 15px #888888"})
                     });
                     $("#table_@item.OvertimeId").mouseout(function () {
 
                         $("#deadline_@item.OvertimeId").css({ "color": "black"});
+                        $("#shadowCard_@item.OvertimeId").css({ "box-shadow": "5px 5px 15px #888888"})
+
                     });
 });
-            </script>
-                            }
+        </script>
+                        }
     </div>
+
+
+
+
