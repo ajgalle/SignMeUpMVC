@@ -1,6 +1,25 @@
-﻿@{
+﻿
+
+@{
     ViewBag.Title = "Home Page";
 }
+<!-- This model is for when an employee selects an opportunity to sign up for-->
+<div class="modal fade" id="modalConfirm">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3> Are you sure? <a href="#" class="close" data-dismiss="modal">&times</a></h3>
+            </div>
+            <div class="modal-body">
+                <p> Once you press confirm, the system will send an email to your supervisor indicating your interest.  If you change you mind later, please contact your supervisor. </p>
+
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-primary" id="btnConfirm" data-dismiss="modal"> Confirm </a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div style="text-align:center">
     <h1>View Overtime</h1>
@@ -9,21 +28,35 @@
 <div class="container" style="width:60%; margin-top:2%;">
         @foreach (var item in ViewBag.AllOvertime)
         {
-            <table class="table table-responsive" id="table_@item.OvertimeId">
+            <div style="border: 5px;box-shadow: 15px 15px 15px #888888;">
+            <table class="table table-responsive"  id="table_@item.OvertimeId">
                          
                <tr>
                         @{
-                            string imgSource = "\\content\\" + item.Location + "_tn.jpg";
-                         }
+                            string imgSource = "";
+                            if (item.Location=="Virginia Beach")
+                            {
+                               imgSource = "\\Images\\VirginiaBeach_tn.jpeg";
+                            }
+                            else
+                            {
+
+                               imgSource = "\\Images\\" + item.Location + "_tn.jpg";
+
+                            }
+                           }
 
                        <td>
-                   <div style="text-align:center"><img src="@imgSource" alt="@item.Location" style="min-width:150px; min-height:100px; border:2px solid; margin:5px" /><br />
-                   <a href="#" id="btnSignUp_@item.OvertimeId" class="btn btn-success"> Sign Up</a>
+                   <div style="text-align:center" ><img style="border:0; margin:2px;"src="@imgSource" alt="@item.Location" style="min-width:200px; min-height:100px; border:2px solid; margin:5px" /><br />
+                   @*<a href="#" id="btnSignUp_@item.OvertimeId" class="btn btn-success"> Sign Up</a>*@
+
+                       <a href="#" class="btn btn-success" data-toggle="modal" data-target="#modalConfirm" id="btnSignUp_@item.OvertimeId">Sign Me Up!</a>
+
                     </div>
                         </td>
 
                    <td>
-                       <table class="table">
+                       <table class="table" >
                            <tr style="border:none">
                                <td>
                                    Id:
@@ -62,14 +95,14 @@
                    </td>                            
                 </tr>
             </table>
-
+                </div>
             <script>
 
                 $(document).ready(function () {
 
                     $("#table_@item.OvertimeId").mouseover(function () {
 
-                        $("#deadline_@item.OvertimeId").css({ "color":"blue"});
+                        $("#deadline_@item.OvertimeId").css({ "color": "blue" });
                     });
                     $("#table_@item.OvertimeId").mouseout(function () {
 

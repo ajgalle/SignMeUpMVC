@@ -13,8 +13,7 @@ namespace SignMeUpMVC.Controllers
         {
             dbLocalTestEntities2 db = new dbLocalTestEntities2();
 
-            //List < tblOvertime  > list = db.tblOvertimes.ToList();
-
+           
             List<OvertimeViewModel> AllOvertimeList = db.tblOvertimes.Where(x => x.IsDeleted != true).Select(x => new OvertimeViewModel { DateTimeEnd = x.DateTimeEnd, DateTimeStart = x.DateTimeStart, OvertimeId = x.OvertimeId, Location = x.Location, SignUpEnd = x.SignUpEnd, SelectedEmployeeId = x.SelectedEmployeeId }).ToList();
             
             ViewBag.AllOvertime = AllOvertimeList;

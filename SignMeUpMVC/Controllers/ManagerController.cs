@@ -18,8 +18,15 @@ namespace SignMeUpMVC.Controllers
         // GET: Manager
         public ActionResult Index()
         {
+
+        
             return View(db.tblOvertimes.ToList());
+
         }
+
+        
+        
+
 
         // GET: Manager/Details/5
         public ActionResult Details(int? id)

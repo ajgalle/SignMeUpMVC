@@ -1,10 +1,10 @@
 ﻿@model SignMeUpMVC.Models.tblOvertime
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+@*<!DOCTYPE html>
 
 <html>
 <head>
@@ -22,7 +22,7 @@
 </head>
 <body>
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryval")*@
     
     <div class="container" style="width:60%; margin-top:2%; text-align:center">
         @using (Html.BeginForm())
@@ -107,5 +107,5 @@
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>
-</body>
-</html>
+@*</body>
+</html>*@

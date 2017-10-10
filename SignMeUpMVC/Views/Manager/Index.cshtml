@@ -1,73 +1,108 @@
 ﻿@model IEnumerable<SignMeUpMVC.Models.tblOvertime>
 
+
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
-<!DOCTYPE html>
+<!-- Hire Screen Modal -->
+<div class="modal fade" id="modalHire">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Who do you want to hire?  <a href="#" class="close"  data-dismiss="modal">&times</a></h3>
+            </div>
+            <div class="modal-body">
+                <select>
+                    <option class="form-control" value=1>Galle, Andrew</option>
+                    <option class="form-control" value=2>Horseman, Bojack</option>
+                    <option class="form-control" value=3>McClure, Troy</option>
+                    <option class="form-control" value=4>Smith, Morty</option>
+                </select>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    
+            </div>
+            <div class="modal-footer">
+                <a href="#" id="btnDemoOnly"class="btn btn-info" data-dismiss="modal"> Hire </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container" style="width:80%;margin-top: 2%">
+
+
+    <h1 style="text-align:center"> Manage Overtime </h1><br />
     <table class="table table-responsive table-hover table-striped">
         <tr>
             <th>
                 Location
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateTimeStart)
+                Start Time
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateTimeEnd)
+                End Time
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SignUpEnd)
+                Deadline to Apply
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SelectedEmployeeId)
+                Selected Employee
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsDeleted)
-            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.IsDeleted)
+                </th>*@
             <th></th>
         </tr>
-    
-   @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateTimeStart)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateTimeEnd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SignUpEnd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SelectedEmployeeId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsDeleted)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.OvertimeId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.OvertimeId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.OvertimeId })
-            </td>
-        </tr>
-    }
-    
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTimeStart)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTimeEnd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SignUpEnd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SelectedEmployeeId)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.IsDeleted)
+                    </td>*@
+                <td>
+                    
+                    @*@Html.ActionLink("Hire", "Hire", new { id = item.OvertimeId },new{ @class="btn btn-info" }) <br />*@
+                    <a href="#" class="btn btn-info" id="btnHire" data-target="#modalHire" data-toggle="modal">Hire</a>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.OvertimeId }) |
+                    @*@Html.ActionLink("Details", "Details", new { id = item.OvertimeId }) |*@
+                    @Html.ActionLink("Delete", "Delete", new { id = item.OvertimeId })
+                </td>
+            </tr>
+        }
+
     </table>
-    
-</body>
-</html>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+</div>
+<script>
+    $(document).ready(function () {
+
+        $('#btnDemoOnly').click(function () {
+            alert('This is a demo only so I am not actually selecting an employee.  Why not try creating a new overtime event? That functionality interacts with the database using Entity Framework. Just click "Create" at the bottom of the list.')
+        });
+    });
+</script>
